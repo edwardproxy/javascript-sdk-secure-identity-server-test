@@ -32,11 +32,11 @@
 //			sdk.clearSession();
 //			b = sdk.getSession();
 
-//			alert(	'redirect_uri: ' + sdk.redirectUri + '\n' +
-//					'authorized: ' + sdk.authorized + '\n' + 
-//					'status: ' + sdk.checkStatus() + '\n' +
-//					'sdk.token: ' + sdk.accessToken + '\n' +
-//					'sdk.expiresIn: ' + sdk.expiresIn);// + '\n' +
+			alert(	'redirect_uri: ' + sdk.redirectUri + '\n' +
+					'authorized: ' + sdk.authorized + '\n' + 
+					'status: ' + sdk.checkStatus() + '\n' +
+					'sdk.token: ' + sdk.accessToken + '\n' +
+					'sdk.expiresIn: ' + sdk.expiresIn);// + '\n' +
 //					'x.access_token: ' + x.access_token + '\n' +
 //					'x.expires_in: ' + x.expires_in);
 
@@ -65,71 +65,16 @@
 
                 var params = {};
                 params.display = 'popup';
-                params.size = {};
-                params.size.width = 500;
-                params.size.height = 500;
+                //params.size = {};
+                //params.size.width = 500;
+                //params.size.height = 500;
                 params.cb = function(data) {
-                    alert('user callback for login called!');
-//                    window.location = 'connect.html';
-//					for(k in data)
-//					{
-//						alert(k + ': ' + data[k]);
-//					}
+                    //alert('user callback for login called!');
+                    window.location = 'connect.html';
                 };
 
-//                sdk.sendAuthRequest();
-//				alert('.....');
-//				sdk.signUpRequest();
+                //sdk.signUpRequest({params:params});
                 sdk.sendAuthRequest({params:params});
-//				alert('....');
-//				alert(sdk.saveSession(undefined));
-//				sdk.oauthSecret = '000';
-//				alert(sdk.oauthSecret);
-//				sdk.sendRequest('users/show/me.json', 'GET', null, function(data){
-//					if (data) {
-//						if (data.meta) 
-//						{
-//							var meta = data.meta;
-//							if (meta.status == 'ok' && meta.code == 200) 
-//							{
-//								alert('API call is successful');
-//								return;
-//							}
-//							else 
-//							{
-//								alert('API call is failed\n' +
-//								'Status: ' +
-//								meta.status +
-//								'\n' +
-//								'Code: ' +
-//								meta.code);
-//								return;
-//							}
-//						}
-//						else 
-//						{
-//							alert('data.meta is ' + data.meta);
-//							return;
-//						}
-//					}
-//					else 
-//					{
-//						alert('data is ' + data);
-//						return;
-//					}
-//				});
-//				alert(	'sdk.accessToken: ' + sdk.accessToken + '\n' +
-//						'sdk.expiresIn: ' + sdk.expiresIn + '\n' +
-//						'sdk.authorized: ' + sdk.authorized + '\n');
-//				data = sdk.getSession();
-//				alert("getSession called\n" + 
-//						'Actual: ' + data + '\n' +
-//						'data.access_token: ' + data.access_token + '\n' +
-//						'data.expires_in: ' + data.expires_in + '\n' +
-//						'sdk.accessToken: ' + sdk.accessToken + '\n' +
-//						'sdk.expiresIn: ' + sdk.expiresIn + '\n' +
-//						'sdk.authorized: ' + sdk.authorized + '\n');
-//				sdk.signUpRequest({useSecure:true});
 
             });
 

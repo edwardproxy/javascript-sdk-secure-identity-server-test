@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<script type="text/javascript" src="test.js"></script>
+
+		<script type="text/javascript" src="../js/jquery/jquery-1.6.2.min.js"></script>
+	    <script type="text/javascript" src="../js/jquery/jquery-ui-1.8.16.custom.min.js"></script>
+	    <script type="text/javascript" src="../js/jquery/jquery.showLoading.js"></script>
+	    <script type="text/javascript" src="../js/cocoafish-1.2.js"></script>
+		<title>Untitled Document</title>
+	</head>
+	<body>
+		
+		<input type=button value="testCreateCocoafish_Positive" onClick="testCreateCocoafish_Positive()">
+		<input type=button value="testCreateCocoafish_Negative" onClick="testCreateCocoafish_Negative()">
+		<input type=button value="testSignUpRequest_Positive" onClick="testSignUpRequest_Positive()">
+		<input type=button value="testSignUpRequest_Negative" onClick="testSignUpRequest_Negative()">
+		<input type=button value="testSendAuthRequest_Positive" onClick="testSendAuthRequest_Positive()">
+		<input type=button value="testSendAuthRequest_Negative" onClick="testSendAuthRequest_Negative()">
+		<!--
+		<input type=button value="testLogOut_Positive" onClick="testLogOut_Positive()">
+		<input type=button value="testLogOut_Negative" onClick="testLogOut_Negative()">
+		-->
+		<input type=button value="testCheckStatus" onClick="testCheckStatus()">
+		<input type=button value="testGetSession" onClick="testGetSession()">
+		<input type=button value="testClearSessionAndSaveSession" onClick="testClearSessionAndSaveSession()">
+		<input type=button value="testSaveSession_Negative" onClick="testSaveSession_Negative()">
+		<input type=button value="testSdkProperty" onClick="testSdkProperty()">
+		<!--
+		<script type="text/javascript">
+			if(sdk==null) {}
+			else
+			{
+				alert('Call api...');
+				alert(		'authorized: ' + sdk.authorized + '\n' + 
+							'status: ' + sdk.checkStatus() + '\n' +
+							'sdk.token: ' + sdk.accessToken + '\n' +
+							'sdk.expiresIn: ' + sdk.expiresIn);
+				sdk.sendRequest('users/show/me.json', 'GET', null, function(data){
+					if (data) {
+						if (data.meta) 
+						{
+							var meta = data.meta;
+							if (meta.status == 'ok' && meta.code == 200) 
+							{
+								alert('API call is successful');
+								return;
+						}
+						else 
+						{
+							alert('API call is failed\n' +
+							'Status: ' +
+							meta.status +
+							'\n' +
+							'Code: ' +
+							meta.code);
+							return;
+						}
+					}
+					else 
+					{
+						alert('data.meta is ' + data.meta);
+						return;
+					}
+				}
+				else 
+				{
+					alert('data is ' + data);
+					return;
+				}
+			});
+			sdk.clearSession();
+			}
+			
+		</script>
+		-->
+	</body>
+</html>

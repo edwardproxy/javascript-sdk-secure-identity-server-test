@@ -5,20 +5,24 @@
 /* 
  * Use OAuth key to initialize SDK
  */
-var sdk = new Cocoafish('VGJSVgFHs7FaOcgcvMWMAGe6bwNpHBfq');
+//var sdk = new Cocoafish('PwlZOBLGdZ0SxTohTf51mGwrrLivN5CI');
+var sdk = new Cocoafish('Op05CjpRiVSKDhCacJeTt7TTUYvQSd1j');
 //must to indicate 3-legged OAuth will be used and the passed in parameter is an OAuth key
-sdk.useThreeLegged(true);
+//sdk.useThreeLegged(true);
 //redirectUri can also be specified when calling sdk.sendAuthRequest, sdk.signUpRequest, and sdk.invalidateTokenRequest.
-sdk.redirectUri = 'http://localhost/cocoafish-javascript-sdk-demo/connect.html';
-sdk.apiBaseURL = 'localhost:3000';
-sdk.oauthSecret = 'ZDkLBzlL28ISUngLgjwuUuMdMqF3Jrm5';
-// sdk.authBaseURL = 'staging-china.cloud.appcelerator.com:3002';
+sdk.redirectUri = 'http://192.168.1.102/cocoafish-javascript-sdk-demo/connect.html';
+//sdk.apiBaseURL = 'localhost:3000';
+//sdk.apiBaseURL = 'api-staging.cloud.appcelerator.com';
+//sdk.oauthSecret = 'cqSreePIH9pMW37MAFO5epKIqz46oWWD';
+//sdk.oauthSecret = '5mNyfa0hUIqFYDlJ8aCKkKJyNPQ3aNNi';
+//sdk.authBaseURL = 'localhost:3001';
+// sdk.authBaseURL = 'security-staging.cloud.appcelerator.com';
 
 /* 
  * Use OAuth key and OAuth secret to initialize SDK
  */
 // var sdk = new Cocoafish('VGJSVgFHs7FaOcgcvMWMAGe6bwNpHBfq','ZDkLBzlL28ISUngLgjwuUuMdMqF3Jrm5');
-// //must to indicate 3-legged OAuth will be used and the passed in parameter is an OAuth key
+// //must to indicate 3-legged OAuth will be used
 // sdk.useThreeLegged(true);
 // //redirectUri can also be specified when calling sdk.sendAuthRequest, sdk.signUpRequest, and sdk.invalidateTokenRequest.
 // sdk.redirectUri = 'http://localhost/cocoafish-javascript-sdk-demo/connect.html';
@@ -74,22 +78,16 @@ function loginUser(userLogin, passwd) {
 
 function logoutUser() {
     if(sdk.isThreeLegged()) {
-        if(confirm('Are you sure want to Disconnect?')) {
-            //Cocoafish.invalidateTokenRequest() will call clearToken to invalidate the token at client side
-            //redirect_uri can be specified here
-            //sdk.invalidateTokenRequest({redirectUri:'http://localhost/cocoafish-javascript-sdk-demo/connect.html'});
-
-            var params = {};
-            //params.display = 'hidden';
-            //params.size = {};
-            //params.size.width = 500;
-            //params.size.height = 500;
-            params.cb = function(data) {
-                //alert('user callback for logout called!');
-                window.location = 'connect.html';
-            };
-
-            sdk.invalidateTokenRequest({params:params});
+        if(confirm('Are you sure want to logout?')) {
+            sdk.sendRequest('users/logout.json', 'GET', null, function(responseData) {
+                alert('resData: ' + responseData + '\n' +
+						'meta: '  + responseData.meta + '\n' +
+						 'code: ' + responseData.meta.code);
+				if(responseData && responseData.meta && responseData.meta.code == 200) {
+                    sdk.clearSession();
+                    window.location = 'connect.html';
+                }
+            });
         }
     } else {
         if(confirm('Are you sure want to logout?')) {
@@ -147,7 +145,7 @@ function testAuthUser(callback, errorCallback, loadingArea) {
         }
         loadingArea.hideLoading();
         errorCallback(callback);
-    });
+    },false);
 }
 
 function showLoginDialog(callback) {
@@ -223,7 +221,7 @@ function getPlaces() {
                 }
             }
         }
-    });
+    }, false);
 }
 
 function createPlacesGrid(places) {

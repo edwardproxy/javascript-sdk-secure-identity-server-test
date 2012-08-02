@@ -6,7 +6,8 @@
 		<script type="text/javascript" src="js/jquery/jquery-1.6.2.min.js"></script>
 		<script type="text/javascript" src="js/jquery/jquery-ui-1.8.16.custom.min.js"></script>
 		<script type="text/javascript" src="js/jquery/jquery.showLoading.js"></script>
-		<script type="text/javascript" src="http://sdk.cocoafish.com/js/cocoafish-1.2.min.js"></script>
+		<!-- <script type="text/javascript" src="http://sdk.cocoafish.com/js/cocoafish-1.2.min.js"></script> -->
+		<script type="text/javascript" src="js/cocoafish-1.2.js"></script>
 		<script type="text/javascript" src="js/utils.js"></script>
 		<link type="text/css" href="css/cupertino/jquery-ui-1.8.8.custom.css" rel="Stylesheet" />
 		<link type="text/css" href="css/showLoading.css" rel="Stylesheet" />
@@ -92,15 +93,6 @@
 								</td>
 							</tr>
 						</table>
-					</div>
-					
-				</td>
-			</tr>
-		</table>
-		</div>
-	</body>
-</html>
-le>
 					</div>
 					
 				</td>
